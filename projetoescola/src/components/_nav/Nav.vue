@@ -1,9 +1,9 @@
 <template>
     <div class="barraTop">
         <nav class="marginPrincipal">
-            <router-link to = "/professores">Professores</router-link>
-            <router-link to = "/todosalunos">Alunos</router-link>
-            <router-link to = "/sobre">Sobre</router-link>
+            <router-link to="/professores">Professores</router-link>
+            <router-link to="/todosalunos">Alunos</router-link>
+            <router-link to="/sobre">Sobre</router-link>
         </nav>
     </div>
 </template>
@@ -15,28 +15,24 @@
 </script>
 
 <style scoped>
-.barraTop{
-    background-color: rgb(230, 230, 230);
+.barraTop {
+    background-color: rgb(230, 230, 230)
 }
-
-nav{
+nav {
     /* padding é superior=20 | direita=20 | inferior=20 | esquerda=0   */
-    padding: 20px 20px 20px 0px 
+    padding: 20px 20px 20px 0px
 }
-
 nav a {
     padding: 10px;
     text-decoration: none;
-    background-color: #fff; 
+    background-color: #fff;
     border-radius: 3px;
     color: rgb(0, 110, 255);
     font-weight: bold;
-    margin-right: 15px;
+    margin-right: 15px; 
 }
-
-nav .router-link-active {
-    background-color: rgb(160, 160 , 160);
-    color: white;
+nav .router-link-active{
+    background-color: rgb(160, 160, 160);
+    color: white
 }
-
 </style>

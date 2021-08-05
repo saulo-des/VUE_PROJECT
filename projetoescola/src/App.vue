@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" >
     <Nav></Nav>
     <div class="marginPrincipal">
       <router-view :key="$route.fullPath"></router-view>
@@ -9,23 +9,22 @@
 
 <script>
 import Alunos from './components/Aluno/Alunos'
-import Professor from './components/Professor/Professor.vue'
-import Sobre from './components/Sobre/Sobre.vue'
+import Professor from './components/Professor/Professor'
+import Sobre from './components/Sobre/Sobre'
 import Nav from './components/_nav/Nav'
 
 export default {
   name: 'app',
-  components: {     
+  components: {    
     Alunos,
     Professor,
     Sobre,
     Nav
-  }
+  },
 }
 </script>
 
 <style>
-
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
 body{
@@ -38,14 +37,33 @@ body, html {
   margin: 0;
   height: 100%;
 }
-
-.marginPrincipal{
-  width: 50%;
-  margin: auto;
+.marginPrincipal {
+     width: 50%;
+     margin: auto;
+}
+#app {
+  width: 100%
 }
 
-#app {
-  width: 100%;
+.btn_Danger {
+  font-size: 0.8em !important;
+  background-color: #fa4430;
+}
+
+.btn{  
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #000;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border-bottom: 3px solid black;
+}
+.btn:hover{
+  text-shadow: 1px 1px 1px black;
+  margin-top: 3px;
+  border-bottom: 1px solid black;
 }
 
 table {
@@ -69,30 +87,8 @@ table thead th{
 }
 .colPequeno {
   width: 5%;
-}
-
-#app {
-
-}
-
-.btn_Danger{
-  background-color: #fa4430;
-}
-
-.btn{  
-  border: 1px solid black;
-  padding: 10px 20px;
-  cursor: pointer;
-  color: white;
+  text-align: right;
+  background-color: rgb(125, 217, 245);
   font-weight: bold;
-  border-radius: 5px;
-  border-bottom: 3px solid black;
-
-}
-
-.btn:hover{
-  text-shadow: 1px 1px 1px black;
-  margin-top: 3px;
-  border-bottom: 1px solid black;
 }
 </style>
