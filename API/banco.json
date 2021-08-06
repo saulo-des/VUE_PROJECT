@@ -16,7 +16,7 @@
   "alunos": [
     {
       "nome": "Beth",
-      "sobrenome": "",
+      "sobrenome": "Silva",
       "professor": {
         "id": "2",
         "nome": "Paula"
@@ -24,8 +24,9 @@
       "id": 5
     },
     {
-      "nome": "Marcus Xavier",
-      "sobrenome": "",
+      "nome": "Marcus",
+      "sobrenome": "Xavier",
+      "dataNasc" :"01/02/2000",
       "professor": {
         "id": "1",
         "nome": "Vinicius"
@@ -33,8 +34,8 @@
       "id": 6
     },
     {
-      "nome": "Lucas Amaral",
-      "sobrenome": "",
+      "nome": "Lucas",
+      "sobrenome": "Amaral",
       "professor": {
         "id": "1",
         "nome": "Vinicius"
@@ -43,7 +44,7 @@
     },
     {
       "nome": "Maria",
-      "sobrenome": "",
+      "sobrenome": "Souza",
       "professor": {
         "id": "2",
         "nome": "Paula"
