@@ -3,7 +3,9 @@
         <div style="display: flex; width: 50">
             <h1>{{texto}}</h1>
             <div class="voltar">
-                <button class="btn btnVoltar" @click="voltar()" >Voltar</button>
+                <!-- <slot> POSSIBILITA COLOCAR DENTRO O MEU OTÃO EDITAR -->
+                <slot></slot>
+                <button v-show="btnVoltar" class="btn btnVoltar" @click="voltar()" >Voltar</button>
             </div>
         </div>        
     </div>
@@ -12,9 +14,12 @@
 <script>
     export default {
         props:{
-            texto: String
+            texto: String,
+            btnVoltar: Boolean
         },
         methods: {
+
+            //MÉTODO DO BOTÃO VOLTAR
             voltar() {
                 this.$router.back();
             },

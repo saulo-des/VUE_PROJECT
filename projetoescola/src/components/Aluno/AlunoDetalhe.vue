@@ -1,7 +1,10 @@
 <template>
   <div>
-    <titulo :texto="`Aluno: ${aluno.nome}`" />
-    <button>Editar</button>
+    <!-- :btnVoltar="false" ELE QUANDO FALSE IRÁ ESCONDER MEU btnVoltar QUE CONSTA NO Titulo.vue -->
+    <titulo :texto="`Aluno: ${aluno.nome}`"  :btnVoltar="!visualizando">
+      <button v-show="visualizando" class="btn btnEditar" @click="editar()">Editar</button>
+    </titulo>
+    
     <table>
       <tbody>
         <tr>
@@ -13,30 +16,30 @@
         <tr>
           <td class="colPequeno">Nome:</td>
           <td>
-            <label>{{ aluno.nome }}</label>
-            <input v-model="aluno.nome" type="text" />
+            <label v-if="visualizando">{{ aluno.nome }}</label>
+            <input v-else v-model="aluno.nome" type="text" />
           </td>
         </tr>
         <tr>
           <td class="colPequeno">Sobrenome:</td>
           <td>
-            <label>{{ aluno.sobrenome }}</label>
-            <input v-model="aluno.sobrenome" type="text" />
+            <label v-if="visualizando">{{ aluno.sobrenome }}</label>
+            <input v-else v-model="aluno.sobrenome" type="text" />
           </td>
         </tr>
         <tr>
           <td class="colPequeno">Data Nascimento:</td>
           <td>
-            <label>{{ aluno.dataNasc }}</label>
-            <input v-model="aluno.dataNasc" type="text" />
+            <label v-if="visualizando">{{ aluno.dataNasc }}</label>
+            <input v-else v-model="aluno.dataNasc" type="text" />
           </td>
         </tr>
         <tr>
           <td class="colPequeno">Professor:</td>
           <td>
-            <label>{{ aluno.professor.nome }}</label>
-            <select v-model="aluno.professor"> 
-                <option v-for="(professor, index) in professores" 
+            <label v-if="visualizando">{{ aluno.professor.nome }}</label>
+            <select v-else v-model="aluno.professor">
+                <option v-for="(professor, index) in professores"
                 :key="index" v-bind:value="professor">
                 {{professor.nome}}
                 </option>
@@ -61,6 +64,7 @@ export default {
       professores :[],
       aluno: {},
       idAluno: this.$route.params.id,
+      visualizando: true
     };
   },
 
@@ -77,12 +81,20 @@ export default {
   },
 
   methods: {
-    name() {},
+    editar() {
+      //VARIAVEL visualizando SERVE PARA MOSTRAR TIPO DE EDIÇÃO QUANDO FOR CLICADO EM EDITAR
+      this.visualizando = !this.visualizando;
+    },
   },
 };
 </script>
 
 <style scoped>
+.btnEditar{
+    float: right;
+    background-color: rgb(76, 186, 249);
+}
+
 .colPequeno {
     width: 20%;
     text-align: right;
@@ -92,7 +104,7 @@ export default {
 
 input, select {
   margin: 0px;
-  padding: 5px 10px;  
+  padding: 5px 10px;
   font-size: 0.9em;
   font-family: montserrat;
   border-radius: 5px;
