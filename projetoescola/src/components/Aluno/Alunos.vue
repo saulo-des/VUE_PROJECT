@@ -1,19 +1,9 @@
 <template>
   <div>
-    <titulo
-      :texto="
-        professorid != undefined
-          ? 'Professor: ' + professor.nome
-          : 'Todos os Alunos'
-      "
-    />
+    <titulo :texto="professorid != undefined ? 'Professor: ' + professor.nome  : 'Todos os Alunos'"
+      btnVoltar="true"/>
     <div v-if="professorid != undefined">
-      <input
-        type="text"
-        placeholder="Digite nome..."
-        v-model="nome"
-        @keyup.enter="addAlunos()"
-      />
+      <input type="text" placeholder="Nome do Aluno" v-model="nome" @keyup.enter="addAlunos()">
       <button class="btn btnInput" @click="addAlunos()">Adicionar</button>
     </div>
 
@@ -25,11 +15,11 @@
       </thead>
       <tbody v-if="alunos.length">
         <tr v-for="(aluno, index) in alunos" :key="index">
-          <td>{{ aluno.id }}</td>
+           <td class="colPequeno">{{aluno.id}}</td>
           <router-link :to="`/alunoDetalhe/${aluno.id}`" tag="td" style="cursor: pointer">
             {{ aluno.nome }} {{ aluno.sobrenome }}
           </router-link>
-          <td>
+          <td class="colPequeno">
             <button class="btn btn_Danger" @click="remover(aluno)">
               Remover
             </button>

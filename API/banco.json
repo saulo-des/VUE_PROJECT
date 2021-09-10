@@ -15,23 +15,14 @@
   ],
   "alunos": [
     {
-      "nome": "Beth",
-      "sobrenome": "Silva",
-      "professor": {
-        "id": "2",
-        "nome": "Paula"
-      },
-      "id": 5
-    },
-    {
+      "id": 6,
       "nome": "Marcus",
       "sobrenome": "Xavier",
-      "dataNasc" :"01/02/2000",
+      "dataNasc": "01/02/1999",
       "professor": {
-        "id": "1",
-        "nome": "Vinicius"
-      },
-      "id": 6
+        "id": 2,
+        "nome": "Paula"
+      }
     },
     {
       "nome": "Lucas",
@@ -43,13 +34,14 @@
       "id": 7
     },
     {
+      "id": 8,
       "nome": "Maria",
-      "sobrenome": "Souza",
+      "sobrenome": "Jose",
+      "dataNasc": "02/05/1698",
       "professor": {
-        "id": "2",
-        "nome": "Paula"
-      },
-      "id": 8
+        "id": 1,
+        "nome": "Vinicius"
+      }
     },
     {
       "nome": "Paulo Henrique",
@@ -61,13 +53,14 @@
       "id": 9
     },
     {
+      "id": 10,
       "nome": "Alex",
-      "sobrenome": "",
+      "sobrenome": "Fernandez",
+      "dataNasc": "02/02/1981",
       "professor": {
         "id": "3",
         "nome": "Luna"
-      },
-      "id": 10
+      }
     }
   ]
 }

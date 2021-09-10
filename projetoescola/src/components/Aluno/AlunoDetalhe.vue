@@ -1,10 +1,12 @@
 <template>
   <div>
     <!-- :btnVoltar="false" ELE QUANDO FALSE IRÁ ESCONDER MEU btnVoltar QUE CONSTA NO Titulo.vue -->
-    <titulo :texto="`Aluno: ${aluno.nome}`"  :btnVoltar="!visualizando">
-      <button v-show="visualizando" class="btn btnEditar" @click="editar()">Editar</button>
+    <titulo :texto="`Aluno: ${aluno.nome}`" :btnVoltar="!visualizando">
+      <button v-show="visualizando" class="btn btnEditar" @click="editar()">
+        Editar
+      </button>
     </titulo>
-    
+
     <table>
       <tbody>
         <tr>
@@ -39,15 +41,29 @@
           <td>
             <label v-if="visualizando">{{ aluno.professor.nome }}</label>
             <select v-else v-model="aluno.professor">
-                <option v-for="(professor, index) in professores"
-                :key="index" v-bind:value="professor">
-                {{professor.nome}}
-                </option>
+              <option
+                v-for="(professor, index) in professores"
+                :key="index"
+                v-bind:value="professor"
+              >
+                {{ professor.nome }}
+              </option>
             </select>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div style="margin-top: 10px">
+      <div v-if="!visualizando">
+        <button class="btn btnSalvar" @click="salvar(aluno)">
+          Salvar
+          </button>
+        <button class="btn btnCancelar" @click="cancelar()">
+          Cancelar
+          </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -61,10 +77,10 @@ export default {
 
   data() {
     return {
-      professores :[],
+      professores: [],
       aluno: {},
       idAluno: this.$route.params.id,
-      visualizando: true
+      visualizando: true,
     };
   },
 
@@ -74,10 +90,10 @@ export default {
       .then((res) => res.json())
       .then((aluno) => (this.aluno = aluno));
 
-       this.$http
-        .get("http://localhost:3000/professores")
-        .then(res => res.json())
-        .then(professor => this.professores = professor);
+    this.$http
+      .get("http://localhost:3000/professores")
+      .then((res) => res.json())
+      .then((professor) => (this.professores = professor));
   },
 
   methods: {
@@ -85,24 +101,48 @@ export default {
       //VARIAVEL visualizando SERVE PARA MOSTRAR TIPO DE EDIÇÃO QUANDO FOR CLICADO EM EDITAR
       this.visualizando = !this.visualizando;
     },
+    salvar(_aluno) {     
+      let _alunoEditar = {
+        id: _aluno.id,
+        nome: _aluno.nome,
+        sobrenome: _aluno.sobrenome,
+        dataNasc: _aluno.dataNasc,
+        professor: _aluno.professor
+      }
+
+      this.$http
+        .put(`http://localhost:3000/alunos/${_alunoEditar.id}`,  _alunoEditar);
+         this.visualizando = !this.visualizando;
+    },
+    cancelar() {
+      this.visualizando = !this.visualizando;
+    },
   },
 };
 </script>
 
 <style scoped>
-.btnEditar{
-    float: right;
-    background-color: rgb(76, 186, 249);
+.btnEditar {
+  float: right;
+  background-color: rgb(76, 186, 249);
+}
+
+.btnSalvar {
+  float: right;
+  background-color: rgb(79, 196, 68);
+}
+
+.btnCancelar {
+  float: left;
+  background-color: rgb(249, 186, 92);
 }
 
 .colPequeno {
-    width: 20%;
-    text-align: right;
-    background-color: rgb(125, 217, 245);
-    font-weight: bold;
+  width: 20%;
 }
 
-input, select {
+input,
+select {
   margin: 0px;
   padding: 5px 10px;
   font-size: 0.9em;
@@ -113,7 +153,7 @@ input, select {
   width: 95%;
 }
 
-select{
+select {
   height: 38px;
   width: 100%;
 }

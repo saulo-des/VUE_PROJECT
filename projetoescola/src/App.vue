@@ -55,7 +55,6 @@ body, html {
   cursor: pointer;
   border: 1px solid #000;
   font-size: 1.2em;
-  font-size: 1.5em;
   color: white;
   font-weight: bold;
   border-radius: 5px;
@@ -88,6 +87,8 @@ table thead th{
 }
 .colPequeno {
   width: 5%;
-
+  text-align: right;
+  background-color: rgb(125, 217, 245);
+  font-weight: bold;
 }
 </style>

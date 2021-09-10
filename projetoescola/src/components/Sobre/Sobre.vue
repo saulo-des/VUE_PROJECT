@@ -1,6 +1,6 @@
 <template>
     <div>
-        <titulo texto="Sobre" />
+        <titulo texto="Sobre" btnVoltar="true"/>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam architecto fugiat nam aliquid nobis saepe mollitia! Voluptas tempora ea consequuntur mollitia ab. Esse rem a ratione eos tempore excepturi earum!</p>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam architecto fugiat nam aliquid nobis saepe mollitia! Voluptas tempora ea consequuntur mollitia ab. Esse rem a ratione eos tempore excepturi earum!</p>
     </div>
@@ -18,6 +18,6 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

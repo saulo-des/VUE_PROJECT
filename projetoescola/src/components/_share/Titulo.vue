@@ -1,9 +1,9 @@
 <template>
     <div>
         <div style="display: flex; width: 50">
-            <h1>{{texto}}</h1>
+            <h2>{{texto}}</h2>
             <div class="voltar">
-                <!-- <slot> POSSIBILITA COLOCAR DENTRO O MEU OTÃO EDITAR -->
+                <!-- <slot> POSSIBILITA COLOCAR DENTRO O MEU BOTÃO EDITAR -->
                 <slot></slot>
                 <button v-show="btnVoltar" class="btn btnVoltar" @click="voltar()" >Voltar</button>
             </div>
@@ -24,7 +24,7 @@
                 this.$router.back();
             },
         },
-    }
+    };
 </script>
 
 <style scoped>
